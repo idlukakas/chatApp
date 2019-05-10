@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      ChatApp
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-textarea [(ngModel)]="user" placeholder="Content"></ion-textarea>
+  <ion-list>
+    <ion-list-header>Selecione uma sala</ion-list-header>
+    <ion-item>
+      <ion-label>SALAS</ion-label>
+      <ion-select [(ngModel)]="value" placeholder="CHATS">
+        <ion-option value="Cinema">Cinema</ion-option>
+        <ion-option value="Esportes">Esportes</ion-option>
+        <ion-option value="Diversos">Diversos</ion-option>        
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <button ion-button icon-only (click)="entrar()" >
+     ENTRAR 
+  </button>
+
+</ion-content>

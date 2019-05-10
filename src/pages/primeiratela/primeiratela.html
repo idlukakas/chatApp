@@ -1,0 +1,23 @@
+<!--
+  Generated template for the PrimeiratelaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ nome }} - {{ sala }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-label id="mostraTxt" *ngFor="let msg of mensagem">
+      {{msg.nome}}
+      {{msg.mensagem}}
+    </ion-label>
+    
+    <ion-textarea id="digitaTxt"  [(ngModel)]="msg"></ion-textarea>
+    <button ion-button icon-only (click)="enviar()" >
+        ENVIAR 
+     </button>
+</ion-content>
