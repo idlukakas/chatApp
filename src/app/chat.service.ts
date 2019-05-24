@@ -1,5 +1,7 @@
-import {AngularFireDatabase} from 'angularfire2/database'
+import { AngularFireDatabase } from 'angularfire2/database'
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class ChatService {
     constructor(private db: AngularFireDatabase) {
 
@@ -44,18 +46,19 @@ export class ChatService {
         }
     ]
     addNote (mensagem, sala){
-        // if(sala=="Cinema"){
-        //     this.chats[0].cinema.push(mensagem);
-        //   }  
-        //   else if(sala=="Esportes"){
-        //     this.chats[1].esportes.push(mensagem);
-        //   }
-        //   else if(sala=="Diversos"){
-        //     this.chats[2].diversos.push(mensagem);
-        //   }
+        if(sala=="Cinema"){
+            this.db.list("/chats/cinema/").push ({mensagem: mensagem.mensagem, nome: mensagem.nome});
+          }  
+          else if(sala=="Esportes"){
+            this.db.list("/chats/esporte/").push ({mensagem: mensagem.mensagem, nome: mensagem.nome});
+          }
+          else if(sala=="Diversos"){
+            this.db.list("/chats/diversos/").push ({mensagem: mensagem.mensagem, nome: mensagem.nome});
+          }
 
-        this.db.list("/chats/").push ({mensagem: mensagem});
-
-        console.log(this.chats[0].cinema)
+        // console.log(this.chats[0].cinema)
        }
+    //    fetchNotes(){
+    //         return this.db.list("/chats/");
+    //    }
 }

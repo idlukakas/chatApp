@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { ChatService } from '../../app/chat.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 /**
  * Generated class for the PrimeiratelaPage page.
@@ -19,18 +20,21 @@ export class PrimeiratelaPage {
   nome;
   sala;
   mensagem;
+  
   msg="";
-  constructor(public navCtrl: NavController, public navParams: NavParams, private chatService: ChatService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private chatService: ChatService, private db: AngularFireDatabase) {
     this.nome = this.navParams.get("nome");
     this.sala = this.navParams.get("sala");
     if(this.sala=="Cinema"){
-      this.mensagem = this.chatService.chats[0].cinema;
+      this.mensagem = this.db.list("/chats/cinema/");
+      // this.mensagem = this.chatService.fetchNotes();
     }  
     else if(this.sala=="Esportes"){
-      this.mensagem = this.chatService.chats[1].esportes;
+      this.mensagem = this.db.list("/chats/esporte/");
     }
     else if(this.sala=="Diversos"){
-      this.mensagem = this.chatService.chats[2].diversos;
+      this.mensagem = this.db.list("/chats/diversos/");
     }
   
   }

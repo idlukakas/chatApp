@@ -8,7 +8,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class HomePage {
   value;
-  user="GUEST012";
+  user="GUEST01";
   
   constructor(public navCtrl: NavController, db: AngularFireDatabase) { 
     console.log(db);
