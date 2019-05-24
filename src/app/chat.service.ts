@@ -1,4 +1,10 @@
-export class ChatService{
+import {AngularFireDatabase} from 'angularfire2/database'
+
+export class ChatService {
+    constructor(private db: AngularFireDatabase) {
+
+    }
+
     chats = [ 
         {
             cinema: [
@@ -38,16 +44,18 @@ export class ChatService{
         }
     ]
     addNote (mensagem, sala){
-        if(sala=="Cinema"){
-            this.chats[0].cinema.push(mensagem);
-          }  
-          else if(sala=="Esportes"){
-            this.chats[1].esportes.push(mensagem);
-          }
-          else if(sala=="Diversos"){
-            this.chats[2].diversos.push(mensagem);
-          }
-        
+        // if(sala=="Cinema"){
+        //     this.chats[0].cinema.push(mensagem);
+        //   }  
+        //   else if(sala=="Esportes"){
+        //     this.chats[1].esportes.push(mensagem);
+        //   }
+        //   else if(sala=="Diversos"){
+        //     this.chats[2].diversos.push(mensagem);
+        //   }
+
+        this.db.list("/chats/").push ({mensagem: mensagem});
+
         console.log(this.chats[0].cinema)
        }
-   }
+}
