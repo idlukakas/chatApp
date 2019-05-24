@@ -20,12 +20,14 @@ export class PrimeiratelaPage {
   nome;
   sala;
   mensagem;
+  username;
   
   msg="";
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private chatService: ChatService, private db: AngularFireDatabase) {
     this.nome = this.navParams.get("nome");
     this.sala = this.navParams.get("sala");
+    // this.username = this.navParams.get("username");
     if(this.sala=="Cinema"){
       this.mensagem = this.db.list("/chats/cinema/");
       // this.mensagem = this.chatService.fetchNotes();

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
@@ -10,8 +10,8 @@ export class HomePage {
   value;
   user="GUEST01";
   
-  constructor(public navCtrl: NavController, db: AngularFireDatabase) { 
-    console.log(db);
+  constructor(public navCtrl: NavController, db: AngularFireDatabase, public navParams: NavParams) { 
+    this.user = this.navParams.get("username");
   }
 
 entrar(){
