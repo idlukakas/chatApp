@@ -11,6 +11,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ChatService } from './chat.service';
 
+import { AngularFireAuthModule } from 'angularfire2/auth'
+import { AuthService } from './auth.service'
+
 export const firebaseConfig = {
   apiKey: "AIzaSyAugImLnsTkYWXvtN-n4P7ljATqDjtosd0",
   authDomain: "chatapp-812ef.firebaseapp.com",
@@ -30,7 +33,8 @@ export const firebaseConfig = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -41,7 +45,8 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     ChatService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService
   ]
 })
 export class AppModule {}
