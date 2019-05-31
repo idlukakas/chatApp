@@ -47,13 +47,13 @@ export class ChatService {
     ]
     addNote (mensagem, sala){
         if(sala=="Cinema"){
-            this.db.list("/chats/cinema/").push ({mensagem: mensagem.mensagem, nome: mensagem.nome});
+            this.db.list("/chats/cinema/").push ({mensagem: mensagem.mensagem, nome: mensagem.nome, date: mensagem.date});
           }  
           else if(sala=="Esportes"){
-            this.db.list("/chats/esporte/").push ({mensagem: mensagem.mensagem, nome: mensagem.nome});
+            this.db.list("/chats/esporte/").push ({mensagem: mensagem.mensagem, nome: mensagem.nome, date: mensagem.date});
           }
           else if(sala=="Diversos"){
-            this.db.list("/chats/diversos/").push ({mensagem: mensagem.mensagem, nome: mensagem.nome});
+            this.db.list("/chats/diversos/").push ({mensagem: mensagem.mensagem, nome: mensagem.nome, date: mensagem.date});
           }
 
         // console.log(this.chats[0].cinema)

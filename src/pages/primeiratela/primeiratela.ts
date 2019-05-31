@@ -45,7 +45,9 @@ export class PrimeiratelaPage {
     console.log('ionViewDidLoad PrimeiratelaPage');
   }
   enviar(){
-    this.chatService.addNote({nome:this.nome,mensagem:this.msg},this.sala)
+    var local = new Date();
+    var localdatetime = local.getHours() + ":" + local.getMinutes() + ":" + local.getSeconds();
+    this.chatService.addNote({nome:this.nome,mensagem:this.msg, date: localdatetime},this.sala)
     // console.log({nome:this.nome,mensagem:this.msg})
   }
 }

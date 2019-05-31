@@ -12,6 +12,7 @@
 
 <ion-content padding>
     <ion-label id="mostraTxt" *ngFor="let msg of mensagem | async">
+      {{msg.date}}
       {{msg.nome}}
       {{msg.mensagem}}
     </ion-label>
